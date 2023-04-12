@@ -7,7 +7,7 @@ from stable_baselines3.common.callbacks import EvalCallback, StopTrainingOnRewar
 
 from simple_pendulum.model.pendulum_plant import PendulumPlant
 from simple_pendulum.simulation.simulation import Simulator
-from simple_pendulum.simulation.gym_environment import SimplePendulumEnv
+from software.python.simple_pendulum.simulation.gym_environment import SimplePendulumEnv
 
 class ppo_trainer():
     """

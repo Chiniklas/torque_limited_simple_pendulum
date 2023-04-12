@@ -15,18 +15,23 @@ inertia = mass*length**2
 damping = 0.10
 gravity = 9.81
 coulomb_fric = 0.0
-# torque_limit = 1.5
-torque_limit = 5
+torque_limit = 1.5
+# torque_limit = 3
 
 # environment parameters
 dt = 0.01
 integrator = "runge_kutta"
 max_steps = 1000
 reward_type = "soft_binary_with_repellor"
+# reward_type = "open_ai_gym_red_torque"
 # reward_type = "open_ai_gym"
+reward_type = "trial_reward"
+
 target = [np.pi, 0]
 target_epsilon = [0.1, 0.1]
+# target_epsilon = [1, 1]
 random_init = "False"
+# random_init = "True"
 
 # training parameters
 learning_rate = 0.0003

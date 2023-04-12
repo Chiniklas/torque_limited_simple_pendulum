@@ -8,7 +8,7 @@ from simple_pendulum.simulation.simulation import Simulator
 from software.python.simple_pendulum.controllers.PPO.ppo_controller import PPOController
 
 # get the simulator
-torque_limit = 5
+torque_limit = 1.5
 mass = 0.57288
 length = 0.5
 damping = 0.10

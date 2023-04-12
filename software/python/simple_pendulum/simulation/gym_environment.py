@@ -304,7 +304,9 @@ class SimplePendulumEnv(gym.Env):
         elif self.reward_type == 'soft_binary':
             reward = np.exp(-pos_diff**2/(2*0.25**2))
         elif self.reward_type == 'soft_binary_with_repellor':
+            # pos_diff is the difference from the target
             reward = np.exp(-pos_diff ** 2 / (2 * 0.25 ** 2))
+            # pos_repeller is the difference from the initial state
             pos_diff_repellor = pos - 0
             reward -= np.exp(-pos_diff_repellor ** 2 / (2 * 0.25 ** 2))
         elif self.reward_type == "open_ai_gym":
@@ -317,6 +319,12 @@ class SimplePendulumEnv(gym.Env):
             reward = (-(pos_diff)**2.0 -
                       0.1*(vel_diff)**2.0 -
                       0.01*action**2.0)
+        elif self.reward_type == "trial_reward":
+            # vel_diff = self.target[1] - vel
+            pos_diff_repellor = pos - 0
+            reward = 10 if np.linalg.norm(pos_diff) < self.state_target_epsilon[0] \
+                        else 2 * np.exp(-pos_diff ** 2 / (2 * 0.25 ** 2)) - np.exp(-pos_diff_repellor ** 2 / (2 * 0.25 ** 2))
+
         else:
             raise NotImplementedError(
                 f'Sorry, reward type {self.reward_type} is not implemented.')
