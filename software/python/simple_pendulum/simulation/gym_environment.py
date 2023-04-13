@@ -322,8 +322,13 @@ class SimplePendulumEnv(gym.Env):
         elif self.reward_type == "trial_reward":
             # vel_diff = self.target[1] - vel
             pos_diff_repellor = pos - 0
-            reward = 10 if np.linalg.norm(pos_diff) < self.state_target_epsilon[0] \
+            reward = 1 if np.linalg.norm(pos_diff) < self.state_target_epsilon[0] \
                         else 2 * np.exp(-pos_diff ** 2 / (2 * 0.25 ** 2)) - np.exp(-pos_diff_repellor ** 2 / (2 * 0.25 ** 2))
+
+        elif self.reward_type == 'trial_reward1':
+            pos_diff_repellor = pos - 0
+            reward = 5 * np.exp(-pos_diff ** 2 / (2 * 0.25 ** 2)) - np.exp(-pos_diff_repellor ** 2 / (2 * 0.25 ** 2))
+
 
         else:
             raise NotImplementedError(

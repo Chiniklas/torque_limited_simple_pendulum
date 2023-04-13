@@ -11,7 +11,7 @@ from software.python.simple_pendulum.controllers.PPO.ppo_controller import PPOCo
 torque_limit = 1.5
 mass = 0.57288
 length = 0.5
-damping = 0.10
+damping = 0.1
 gravity = 9.81
 coulomb_fric = 0.0
 inertia = mass*length**2
@@ -32,7 +32,7 @@ model_path = "../../../data/models/best_model.zip"
 controller = PPOController(model_path=model_path,
                            torque_limit=torque_limit,
                            use_symmetry=True,
-                           state_representation=3)
+                           state_representation=2)
 
 # simulate
 x0_sim = [0.01, 0.0]

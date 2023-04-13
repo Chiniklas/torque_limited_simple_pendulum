@@ -1,0 +1,20 @@
+Hyperpara
+mass = 0.57288
+length = 0.5
+inertia = mass*length**2
+damping = 0
+
+gravity = 9.81
+coulomb_fric = 0.0
+torque_limit = 2
+
+target = [np.pi, 0]
+target_epsilon = [0.1, 0.1]
+reward_type = "open_ai_gym"
+random_init = "True"
+
+learning_rate = 0.0003
+training_timesteps = 1e6
+reward_threshold = 1000
+eval_frequency = 10000
+n_eval_episodes = 20

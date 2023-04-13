@@ -31,6 +31,8 @@ sim = Simulator(plant=pendulum)
 # get the controller
 model_path = "../../../data/models/sac_model.zip"
 
+# model_path = "../../../software/python/examples/log_data/sac_training/best_model/PPO1.zip"
+
 controller = SacController(model_path=model_path,
                            torque_limit=torque_limit,
                            use_symmetry=True,

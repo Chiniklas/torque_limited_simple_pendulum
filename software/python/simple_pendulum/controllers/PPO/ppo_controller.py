@@ -10,12 +10,13 @@ from stable_baselines3 import PPO
 # local imports
 from simple_pendulum.controllers.abstract_controller import AbstractController
 
+
 class PPOController(AbstractController):
     def __init__(self,
                  model_path,
                  torque_limit,
                  use_symmetry=True,
-                 state_representation=3):
+                 state_representation=2):
 
         self.model = PPO.load(model_path)
         self.torque_limit = float(torque_limit)
@@ -24,8 +25,8 @@ class PPOController(AbstractController):
 
         if state_representation == 2:
             # state is [th, th, vel]
-            self.low = np.array([-6*2*np.pi, -20])
-            self.high = np.array([6*2*np.pi, 20])
+            self.low = np.array([-6 * 2 * np.pi, -20])
+            self.high = np.array([6 * 2 * np.pi, 20])
         elif state_representation == 3:
             # state is [cos(th), sin(th), vel]
             self.low = np.array([-1., -1., -8.])
@@ -71,4 +72,3 @@ class PPOController(AbstractController):
                                    dtype=np.float32)
 
         return observation
-

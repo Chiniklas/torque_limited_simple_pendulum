@@ -16,7 +16,7 @@ damping = 0.10
 gravity = 9.81
 coulomb_fric = 0.0
 torque_limit = 1.5
-# torque_limit = 3
+
 
 # environment parameters
 dt = 0.01
@@ -25,17 +25,17 @@ max_steps = 1000
 reward_type = "soft_binary_with_repellor"
 # reward_type = "open_ai_gym_red_torque"
 # reward_type = "open_ai_gym"
-reward_type = "trial_reward"
+# reward_type = "trial_reward1"
 
 target = [np.pi, 0]
 target_epsilon = [0.1, 0.1]
 # target_epsilon = [1, 1]
-random_init = "False"
-# random_init = "True"
+# random_init = "False"
+random_init = "True"
 
 # training parameters
 learning_rate = 0.0003
-training_timesteps = 2e5
+training_timesteps = 1.2e6
 reward_threshold = 1000
 eval_frequency = 10000
 n_eval_episodes = 20
@@ -57,7 +57,7 @@ trainer.init_environment(dt=dt,
                          target=target,
                          state_target_epsilon=target_epsilon,
                          random_init=random_init,
-                         state_representation=3)
+                         state_representation=2)
 
 trainer.init_agent(learning_rate=learning_rate,
                    warm_start=False,

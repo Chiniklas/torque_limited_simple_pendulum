@@ -51,7 +51,7 @@ trainer.init_environment(dt=dt,
                          target=target,
                          state_target_epsilon=target_epsilon,
                          random_init=random_init,
-                         state_representation=3)
+                         state_representation=2)
 
 trainer.init_agent(learning_rate=learning_rate,
                    warm_start=False,
