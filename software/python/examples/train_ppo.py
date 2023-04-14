@@ -30,12 +30,12 @@ reward_type = "soft_binary_with_repellor"
 target = [np.pi, 0]
 target_epsilon = [0.1, 0.1]
 # target_epsilon = [1, 1]
-# random_init = "False"
-random_init = "True"
+random_init = "False"
+# random_init = "True"
 
 # training parameters
 learning_rate = 0.0003
-training_timesteps = 1.2e6
+training_timesteps = 1e6
 reward_threshold = 1000
 eval_frequency = 10000
 n_eval_episodes = 20
@@ -60,8 +60,8 @@ trainer.init_environment(dt=dt,
                          state_representation=2)
 
 trainer.init_agent(learning_rate=learning_rate,
-                   warm_start=False,
-                   warm_start_path="",
+                   warm_start=True,
+                   warm_start_path="../../../data/models/PPO_models/ppo2/PPO2.zip",
                    verbose=1)
 
 trainer.train(training_timesteps=training_timesteps,

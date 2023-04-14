@@ -13,7 +13,7 @@ mass = 0.57288
 length = 0.5
 damping = 0.1
 gravity = 9.81
-coulomb_fric = 0.0
+coulomb_fric = 0
 inertia = mass*length**2
 
 pendulum = PendulumPlant(mass=mass,
@@ -27,7 +27,9 @@ pendulum = PendulumPlant(mass=mass,
 sim = Simulator(plant=pendulum)
 
 # get the controller
-model_path = "../../../data/models/best_model.zip"
+# model_path = "../../../data/models/PPO_models/ppo2/PPO2.zip"
+# model_path = "../../../data/models/best_model.zip"
+model_path = "../../../data/models/PPO_models/ppo6/ppo_6_trans_softbinary_withrepeller.zip"
 
 controller = PPOController(model_path=model_path,
                            torque_limit=torque_limit,
