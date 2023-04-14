@@ -29,7 +29,7 @@ pendulum = PendulumPlant(mass=mass,
 sim = Simulator(plant=pendulum)
 
 # get the controller
-model_path = "../../../data/models/sac_model.zip"
+model_path = "../../../data/models/best_model.zip"
 
 # model_path = "../../../software/python/examples/log_data/sac_training/best_model/PPO1.zip"
 
